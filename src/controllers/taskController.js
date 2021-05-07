@@ -28,7 +28,7 @@ const taskController = {
         fs.writeFileSync('tasks.json', tasksJson)
         console.log(archivoTask)
         
-        res.redirect('/task')
+        res.redirect('/tasks')
 
     },
     detail: (req,res)=>{
@@ -38,6 +38,38 @@ const taskController = {
         const taskId =  list.find((item)=> req.params.id == item.id)
         
         res.render('detail', { title:'Detail', taskId:taskId})
+    },
+    delete:(req,res)=>{
+        
+        const list = JSON.parse(archivoTask)
+
+        const taskFilter =  list.filter((item)=> req.params.id != item.id)
+
+        const filterJson = JSON.stringify(taskFilter)
+
+        fs.writeFileSync('./tasks.json', filterJson)
+
+        console.log(taskFilter)
+        res.redirect('/')
+    },
+    update: (req,res)=>{
+        const keys = Object.keys(req.body)
+
+        const list = JSON.parse(archivoTask)
+        console.log(keys)
+
+        var taskId = list.find((task) => task.id == req.params.id)
+	    keys.forEach((key) => (taskId[key] = req.body[key]))
+
+        const tasksJSon = JSON.stringify(list)
+	    fs.writeFileSync('./tasks.json', tasksJSon)
+
+        res.redirect('/tasks')
+
+        //const taskId =  list.find((item)=> req.params.id == item.id)
+
+    
+
     }
     
 
