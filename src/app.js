@@ -22,7 +22,7 @@ app.use(methodOverride('_method'))
 app.use(express.static(path.join(__dirname, '../public')));
 app.use('/', indexRouter);
 
-app.use('/task', indexRouter);
+app.use('/tasks', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler

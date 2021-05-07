@@ -82,6 +82,7 @@ button:hover {
 
 .list-group-item:hover .item-delete {
   display: inline;
+  margin: 2% 2%;
   font-size: .75em;
   color: red;
 }

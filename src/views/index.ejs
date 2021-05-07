@@ -20,13 +20,9 @@
           <div class="list-group">
             <%list.forEach((item)=>{%>
             <div class="list-group-item">
-              <a href="/task/<%=item.id%>">
+              <a href="/tasks/detail/<%=item.id%>">
                 <%=item.title%>
               </a>
-
-              <form action="/task/<%=item.id%>?_method=DELETE" method="POST">
-                <button class="btn item-delete">Borrar</button>
-              </form>
             </div>
             <%})%>
           </div>

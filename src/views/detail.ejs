@@ -1,0 +1,18 @@
+<%- include('./partials/head.ejs')%>
+  <body>
+    <h1>Detail</h1>  
+    <div class="list-group">
+        
+        <div class="list-group-item">
+          <a href="/tasks/detail/<%=taskId.id%>">
+            <%=taskId.title%>
+          </a>
+          <form action="/task/<%=taskId.id%>?_method=PUT" method="POST">
+            <button class="btn item-delete">Modificar</button>
+          </form>
+          <form action="/task/<%=taskId.id%>?_method=DELETE" method="POST">
+            <button class="btn item-delete">Borrar</button>
+          </form>
+        </div>
+  </body>
+</html>

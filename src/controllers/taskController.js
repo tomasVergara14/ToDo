@@ -31,6 +31,15 @@ const taskController = {
         res.redirect('/task')
 
     },
+    detail: (req,res)=>{
+        
+        const list = JSON.parse(archivoTask)
+
+        const taskId =  list.find((item)=> req.params.id == item.id)
+        
+        res.render('detail', { title:'Detail', taskId:taskId})
+    }
+    
 
 
 }
