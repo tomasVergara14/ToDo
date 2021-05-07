@@ -18,15 +18,17 @@
       <div class="row">
         <div class="col">
           <div class="list-group">
+            <%list.forEach((item)=>{%>
             <div class="list-group-item">
-              <a href="/tasks/1">
-                Titulo de la tarea
+              <a href="/task/<%=item.id%>">
+                <%=item.title%>
               </a>
 
-              <form action="/task/:id" method="POST">
+              <form action="/task/<%=item.id%>?_method=DELETE" method="POST">
                 <button class="btn item-delete">Borrar</button>
               </form>
             </div>
+            <%})%>
           </div>
         </div>
       </div>
